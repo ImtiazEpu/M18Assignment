@@ -14,8 +14,9 @@ class CategoryController extends Controller {
         $categoryName  = $category->name;
         $categoryID    = $category->id;
         $category_data = $category->posts;
+        $latestPost    = $category->latestPost;
 
         return view( 'category',
-            [ 'categories' => $category_data, 'categoryName' => $categoryName, 'categoryID' => $categoryID ] );
+            [ 'categories' => $category_data, 'categoryName' => $categoryName, 'categoryID' => $categoryID, 'latestPost' => $latestPost ] );
     }
 }

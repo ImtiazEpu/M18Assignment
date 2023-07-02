@@ -14,11 +14,13 @@
                 <div>
                     <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">{{ ucfirst($category->title) }}</h2>
 
-                    <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                    <p class="mt-4 text-gray-500 dark:text-gray-400 text-md leading-relaxed">
                         {{ $category->content }}
                     </p>
+                    <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                        Created at {{ $category->created_at->diffForHumans() }}
+                    </p>
                 </div>
-
             </div>
 @endforeach
 @include('components.footer')

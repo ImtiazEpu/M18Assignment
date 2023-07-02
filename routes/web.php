@@ -18,5 +18,4 @@ Route::post( 'posts/{id}/restore', [ PostControllerAlias::class, 'restore' ] )->
 Route::post( 'posts/{id}/force_delete', [ PostControllerAlias::class, 'forceDelete' ] )->name( 'posts.force_delete' );
 Route::post( 'posts/{id}/delete', [ PostControllerAlias::class, 'delete' ] )->name( 'posts.delete' );
 Route::get( '/', [ PostControllerAlias::class, 'view' ] );
-Route::get( '/categories/{id}/posts',
-    array( CategoryControllerAlias::class, 'getPostsByCategory' ) )->name( 'category.getPosts' );
+Route::get( '/categories/{id}/posts', array( CategoryControllerAlias::class, 'getPostsByCategory' ) )->name( 'category.getPosts' );

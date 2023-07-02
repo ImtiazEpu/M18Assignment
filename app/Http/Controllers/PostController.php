@@ -18,7 +18,8 @@ class PostController extends Controller {
      */
     public function view( Request $request ) {
         $posts = Post::with( 'category' )
-                     ->when( $request->has( 'archive' ), function ( $query ) {
+                     ->when( $request
+                         ->has( 'archive' ), function ( $query ) {
                          $query->onlyTrashed();
                      } )->get();
 
@@ -50,6 +51,11 @@ class PostController extends Controller {
         return redirect()->back()->with( 'success', 'Post permanently deleted.' );
     }
 
+    /**
+     * @param $id
+     *
+     * @return RedirectResponse
+     */
     public function restore( $id ) {
         $post = Post::onlyTrashed()->findOrFail( $id );
         $post->restore();
